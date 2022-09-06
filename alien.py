@@ -15,6 +15,7 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
+        self.mask = pygame.mask.from_surface(self.image)
         
         # Aliens's position
         self.x = float(self.rect.x)

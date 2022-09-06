@@ -14,6 +14,7 @@ class Bullet(Sprite):
         self.image = pygame.transform.scale(pygame.image.load(
                                             'images/bullet.png'), (5, 20))
         self.rect = self.image.get_rect()
+        self.mask = pygame.mask.from_surface(self.image)
         
         # Bullet's position
         self.rect.midtop = ai_game.ship.rect.midtop

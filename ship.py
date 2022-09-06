@@ -8,9 +8,12 @@ class Ship(object):
         self.settings = ai_game.settings
         
         # Image of the ship
-        self.image = pygame.transform.scale(pygame.image.load('images/ship.png'), (0.1*self.screen_rect.width, 0.15*self.screen_rect.height))
+        self.image = pygame.transform.scale(pygame.image.load('images/ship.png'), 
+                                            (0.07*self.screen_rect.width, 
+                                             0.12*self.screen_rect.height))
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
+        self.mask = pygame.mask.from_surface(self.image)
         
         # Ship's movement
         self.speed = self.settings.ship_speed
@@ -36,7 +39,10 @@ class Ship(object):
             self.position['y'] -= self.speed
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.position['y'] += self.speed
-        
             
         self.rect.x = self.position['x']
         self.rect.y = self.position['y']
+    
+    def reset_position(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.position = {'x':float(self.rect.x), 'y':float(self.rect.y)}
