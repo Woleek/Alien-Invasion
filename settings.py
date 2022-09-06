@@ -13,4 +13,5 @@ class Settings(object):
         # Bullet settings
         self.bullet_speed = 1.0
         
-                                                             
+        # Alien settings
+        self.alien_speed_x = 1.0  
